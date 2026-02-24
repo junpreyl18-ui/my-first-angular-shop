@@ -1,0 +1,96 @@
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">🧵</span>
+    <span class="brand-name">{{ title }}</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="nav-cart">
+    <span>🛒</span>
+    <span class="cart-badge">0</span>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">New Collection 2025</p>
+    <h1 class="hero-title">Style That<br><em>Speaks</em> For You</h1>
+    <p class="hero-sub">Curated fashion for every occasion. Premium quality, unbeatable prices.</p>
+    <a href="#products" class="btn-hero">Shop Now →</a>
+  </div>
+  <div class="hero-badge">
+    <span>FREE SHIPPING</span>
+    <span>OVER ₱999</span>
+  </div>
+</section>
+
+<!-- PRODUCT SECTION -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <h2>Our Collection</h2>
+    <p>Handpicked styles just for you</p>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-image-wrap">
+        <img [src]="product.image" [alt]="product.name" class="product-image" />
+        <span class="product-tag">{{ product.tag }}</span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-price">₱{{ product.price | number }}</p>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<section class="promo-banner">
+  <div class="promo-content">
+    <h2>Get 20% Off Your First Order!</h2>
+    <p>Use code <strong>THREAD20</strong> at checkout</p>
+    <a href="#" class="btn-promo">Claim Offer</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>🧵 {{ title }}</h3>
+      <p>Your go-to destination for modern, affordable fashion in the Philippines.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>📧 hello&#64;threadhouse.ph</p>
+      <p>📞 +63 912 345 6789</p>
+      <p>📍 Cagayan de Oro, PH</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 {{ title }}. All rights reserved.</p>
+  </div>
+</footer>
