@@ -9,10 +9,6 @@
     <li><a href="#">Products</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
-  <div class="nav-cart">
-    <span>🛒</span>
-    <span class="cart-badge">0</span>
-  </div>
 </nav>
 
 <!-- HERO SECTION -->
@@ -29,36 +25,10 @@
   </div>
 </section>
 
-<!-- PRODUCT SECTION -->
-<section class="products-section" id="products">
-  <div class="section-header">
-    <h2>Our Collection</h2>
-    <p>Handpicked styles just for you</p>
-  </div>
-
-  <div class="products-grid">
-    <div class="product-card" *ngFor="let product of products">
-      <div class="product-image-wrap">
-        <img [src]="product.image" [alt]="product.name" class="product-image" />
-        <span class="product-tag">{{ product.tag }}</span>
-      </div>
-      <div class="product-info">
-        <h3 class="product-name">{{ product.name }}</h3>
-        <p class="product-price">₱{{ product.price | number }}</p>
-        <button class="btn-cart">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BANNER -->
-<section class="promo-banner">
-  <div class="promo-content">
-    <h2>Get 20% Off Your First Order!</h2>
-    <p>Use code <strong>THREAD20</strong> at checkout</p>
-    <a href="#" class="btn-promo">Claim Offer</a>
-  </div>
-</section>
+<!-- PRODUCTS COMPONENT -->
+<div id="products">
+  <app-products></app-products>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">

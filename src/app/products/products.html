@@ -1,0 +1,64 @@
+<!-- CART SUMMARY BAR -->
+<div class="cart-bar">
+    <span class="cart-bar-title">ThreadHouse</span>
+    <div class="cart-info">
+      <span class="cart-count">Cart: {{ cartCount }} item(s)</span>
+      <span class="cart-total">Total: &#x20B1;{{ cartTotal | number }}</span>
+    </div>
+  </div>
+  
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Our Collection</h1>
+    <p>Dynamic products powered by Angular</p>
+  </div>
+  
+  <!-- CATEGORY FILTER (Bonus) -->
+  <div class="category-filter">
+    <button
+      *ngFor="let cat of categories"
+      class="filter-btn"
+      [class.active]="selectedCategory === cat"
+      (click)="filterByCategory(cat)">
+      {{ cat }}
+    </button>
+  </div>
+  
+  <!-- PRODUCTS GRID using *ngFor -->
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let item of filteredProducts">
+  
+      <!-- Product Image (Bonus) -->
+      <div class="product-image-wrap">
+        <img [src]="item.image" [alt]="item.name" class="product-image" />
+        <span class="product-tag">{{ item.tag }}</span>
+      </div>
+  
+      <!-- Product Info -->
+      <div class="product-info">
+        <h3 class="product-name">{{ item.name }}</h3>
+        <p class="product-category">{{ item.category }}</p>
+        <p class="product-price">&#x20B1;{{ item.price | number }}</p>
+  
+        <!-- *ngIf for availability -->
+        <p class="badge available" *ngIf="item.available">Available</p>
+        <p class="badge out-of-stock" *ngIf="!item.available">Out of Stock</p>
+  
+        <!-- Add to Cart button with event binding -->
+        <button
+          class="btn-cart"
+          [disabled]="!item.available"
+          [class.disabled]="!item.available"
+          (click)="addToCart(item)">
+          {{ item.available ? 'Add to Cart' : 'Unavailable' }}
+        </button>
+      </div>
+  
+    </div>
+  </div>
+  
+  <!-- CART TOTAL FOOTER (Bonus) -->
+  <div class="cart-footer" *ngIf="cartCount > 0">
+    <p>You have <strong>{{ cartCount }}</strong> item(s) in your cart.</p>
+    <p>Total: <strong>&#x20B1;{{ cartTotal | number }}</strong></p>
+  </div>
